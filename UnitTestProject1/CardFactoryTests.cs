@@ -16,7 +16,7 @@ namespace CardFactoryTests
         }
 
         [TestMethod]
-        public void MyTestMethod()
+        public void DeckContains13SuitedMacthes()
         {
 
             var sut = CardFactory.getSuitTestList();

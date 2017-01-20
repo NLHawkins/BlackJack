@@ -7,24 +7,25 @@ using System.Threading.Tasks;
 
 namespace BlackJack
 {
-    class GamePlay
+    public class GamePlay
     {
-        public static List<Card> DealCard(int count)
+
+
+        public static Card DealCard()
         {
-
-            var gameDeck = new List<Card>(CardFactory.CreateDeck());
-            var gameCard = new Card();
-            var rng = new Random();
-
-            CardFactory.CreateDeck();
-            for (int i = 0; i < count; i++)
+            List<Card> gameDeck = new List<Card>(CardFactory.CreateDeck());
+            Random rng = new Random();
+            Card dealtCard = new Card();
+            while (!gameDeck.Contains(dealtCard))
             {
-                gameCard = gameDeck[rng.Next(52)];
+                dealtCard = gameDeck[rng.Next(52)];
             }
+            gameDeck.Remove(dealtCard);
+            return dealtCard;
 
-            return gameCard;
         }
-//public Card(Suits _suit, Faces _face)
 
+        //public static Card AddtoHandList()
+        
     }
 }

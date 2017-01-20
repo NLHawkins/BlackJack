@@ -27,7 +27,7 @@ namespace BlackJack
                     };
 
 
-            List<Card> CardDeck = new List<Card>();
+           List<Card> CardDeck = new List<Card>();
 
             for (int numbOfSuits = 0; numbOfSuits < 4; numbOfSuits++)
             {
