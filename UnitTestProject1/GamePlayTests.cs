@@ -9,13 +9,13 @@ namespace UnitTestProject1
     [TestClass]
     public class GamePlayTests
     {
-        GamePlay GamePlay = new GamePlay();
+       
         [TestMethod]
         public void GamePlayWillDealUniqueCard()
         {
             List<Card> testCardMatchList = new List<Card>();
             
-            for (int i = 0; i < 52; i++)
+            for (int i = 0; i <= 52; i++)
             {
                 var card = GamePlay.dealCard();
                 testCardMatchList.Add(card);                
@@ -39,15 +39,6 @@ namespace UnitTestProject1
             int count = suitTestList.FindAll(x => x == Suits.Club).Count();
             Assert.AreEqual(13, count);
         }
-        [TestMethod]
-        public void TestHand()
-        {
-            var testPlayer = new Gambler(0, 0);
-            var card = new Card(Suits.Club, Faces.Ace);
-            testPlayer.handNameList.Add(card.getName());
-            //Assert.IsNotNull(testPlayer.getHandList());
-            Assert.AreEqual(1, testPlayer.getNumbofCards());
-            Assert.AreEqual(11, testPlayer.getHoldingValue());
-        }
+        
     }
 }

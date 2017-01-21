@@ -33,7 +33,13 @@ namespace BlackJack
         }
 
         static void Main(string[] args)
-        {            
+        {
+            //var cardAtPlay = new Card();
+           //cardAtPlay = GamePlay.dealCard();
+            //player.hand.Add()
+
+      
+                    
             
 
             

@@ -19,13 +19,6 @@ namespace BlackJack
         }
         //  removed from below for testing .  List<Card> _handList,
 
-        public Gambler(int _numberOfCards, int _holdingValue)
-        {
-            
-            numbOfCards = _numberOfCards;
-            holdingValue = _holdingValue;
-        }
-
         public List<string> getHandList()
         {
             
@@ -45,21 +38,13 @@ namespace BlackJack
             {
                 
                 holdingValue = value + card.getValue();
+                value = holdingValue;
             }
+            
             return holdingValue;
         }
 
-        //public void AddCardToHand()
-        //{
-           // handList.Add(deal);
-        //}
-
-
-        //public Card hit()
-        //{
-            //return GamePlay.DealCard();
-                
-        //}
+  
     }
 
 }

@@ -14,10 +14,10 @@ namespace BlackJack
 
         
 
-        public Card dealCard()
+        public static Card dealCard()
         {
             Card card = new Card();
-            List<Card> gameDeck = new List<Card>();
+            List<Card> gameDeck = CardFactory.CreateDeck();
             Gambler player = new Gambler();
             Random rng = new Random();
 
@@ -40,11 +40,6 @@ namespace BlackJack
         }
 
 
-        /*
-        public static void addToHandList()
-        {
-            
-        }
-        */
+        
     }
 }
