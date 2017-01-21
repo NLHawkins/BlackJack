@@ -17,10 +17,10 @@ namespace BlackJack
         {
         }
         //  removed from below for testing .  List<Card> _handList,
-        public Gambler( int _numberOfCards, int _holdingValue)
-        {
 
-            //handList = _handList;
+        public Gambler( List<Card> _handList, int _numberOfCards, int _holdingValue)
+        {
+            handList = _handList;
             numbOfCards = _numberOfCards;
             holdingValue = _holdingValue;
         }
@@ -38,14 +38,21 @@ namespace BlackJack
 
         public int getHoldingValue()
         {
+            
             return holdingValue;
         }
 
-        public Card hit()
+        public void AddCardToHand()
         {
-            return GamePlay.DealCard();
-                
+            handList.Add(GamePlay.DealCard());
         }
+
+
+        //public Card hit()
+        //{
+            //return GamePlay.DealCard();
+                
+        //}
     }
 
 }

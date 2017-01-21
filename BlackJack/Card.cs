@@ -15,15 +15,16 @@ namespace BlackJack
 
     public enum Faces
     {
-        Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten,
-        Jack, Queen, King, Ace
+        Two = 2, Three = 3, Four = 4, Five = 5, Six = 6,
+        Seven = 7, Eight = 8, Nine = 9, Ten = 10,
+        Jack = 10, Queen = 10, King = 10, Ace = 11
     }
 
     public class Card
     {
         public Suits suit;
         public Faces face;
-        //public int value;
+        public int value;
         
 
 
@@ -33,11 +34,11 @@ namespace BlackJack
 
         }
         //took out value!!!!!!**************************
-        public Card(Suits _suit, Faces _face)
+        public Card(Suits _suit, Faces _face, int _value)
         {
             suit = _suit;
             face = _face;
-            //value = _value;
+            value = _value;
 
         }
 
@@ -50,12 +51,13 @@ namespace BlackJack
         {
             return face;
         }
-        /*
+        
         public int getValue()
         {
+            
             return value;
         }
-        */
+        
     }
 
 

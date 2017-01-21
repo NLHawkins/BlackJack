@@ -10,9 +10,10 @@ namespace GamblerTests
         [TestMethod]
         public void GamblerAttainsAttributes()
         {
-            var sut = new Gambler(2, 16);
+            var sut = new Gambler(null, 2, 16);
             Assert.AreEqual(2, sut.getNumbofCards());
             Assert.AreEqual(16, sut.getHoldingValue());
+
         }
     }
 }

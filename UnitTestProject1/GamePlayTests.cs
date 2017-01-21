@@ -43,5 +43,13 @@ namespace UnitTestProject1
             int count = suitTestList.FindAll(x => x == Suits.Club).Count();
             Assert.AreEqual(13, count);
         }
+        [TestMethod]
+        public void TestHand()
+        {
+            var testPlayer = new Gambler(null, 0, 0);
+            testPlayer.AddCardToHand();
+            Assert.IsNotNull(testPlayer.getHandList());
+            Assert.AreEqual(1, testPlayer.getNumbofCards());
+        }
     }
 }

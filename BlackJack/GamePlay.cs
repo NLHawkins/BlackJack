@@ -22,9 +22,9 @@ namespace BlackJack
             }
             gameDeck.Remove(dealtCard);
             return dealtCard;
-
         }
 
+        
         //public static Card AddtoHandList()
         
     }
