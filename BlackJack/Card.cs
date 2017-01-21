@@ -25,7 +25,7 @@ namespace BlackJack
         public Suits suit;
         public Faces face;
         public int value;
-        
+        public string name;
 
 
 
@@ -34,11 +34,11 @@ namespace BlackJack
 
         }
         //took out value!!!!!!**************************
-        public Card(Suits _suit, Faces _face, int _value)
+        public Card(Suits _suit, Faces _face)
         {
             suit = _suit;
             face = _face;
-            value = _value;
+            //value = _value;
 
         }
 
@@ -54,8 +54,14 @@ namespace BlackJack
         
         public int getValue()
         {
-            
+            value = (int)face;
             return value;
+        }
+
+       public string getName()
+          {
+            name = $"The {face} of {suit}s";
+            return name;
         }
         
     }

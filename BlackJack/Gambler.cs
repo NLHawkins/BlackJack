@@ -11,41 +11,48 @@ namespace BlackJack
     {
         public int holdingValue;
         public int numbOfCards;
-        public List<Card> handList = new List<Card>();
+        public List<string> handNameList = new List<string>();
+        public List<Card> hand = new List<Card>();
         
         public Gambler()
         {
         }
         //  removed from below for testing .  List<Card> _handList,
 
-        public Gambler( List<Card> _handList, int _numberOfCards, int _holdingValue)
+        public Gambler(int _numberOfCards, int _holdingValue)
         {
-            handList = _handList;
+            
             numbOfCards = _numberOfCards;
             holdingValue = _holdingValue;
         }
 
-        public List<Card> getHandList()
+        public List<string> getHandList()
         {
-            return handList;
+            
+            return handNameList;
         }
 
         public int getNumbofCards()
         {
-            
+            numbOfCards = handNameList.Count();
             return numbOfCards;
         }
 
         public int getHoldingValue()
         {
-            
+            int value = 0;
+            foreach (var card in hand)
+            {
+                
+                holdingValue = value + card.getValue();
+            }
             return holdingValue;
         }
 
-        public void AddCardToHand()
-        {
-            handList.Add(GamePlay.DealCard());
-        }
+        //public void AddCardToHand()
+        //{
+           // handList.Add(deal);
+        //}
 
 
         //public Card hit()

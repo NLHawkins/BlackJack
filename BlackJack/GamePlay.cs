@@ -5,27 +5,46 @@ using System.Text;
 using System.Threading.Tasks;
 
 
+
 namespace BlackJack
 {
     public class GamePlay
     {
 
 
-        public static Card DealCard()
+        
+
+        public Card dealCard()
         {
-            List<Card> gameDeck = new List<Card>(CardFactory.CreateDeck());
+            Card card = new Card();
+            List<Card> gameDeck = new List<Card>();
+            Gambler player = new Gambler();
             Random rng = new Random();
-            Card dealtCard = new Card();
-            while (!gameDeck.Contains(dealtCard))
+
+            while (!gameDeck.Contains(card))
             {
-                dealtCard = gameDeck[rng.Next(52)];
+                card = gameDeck[rng.Next(52)];
             }
-            gameDeck.Remove(dealtCard);
-            return dealtCard;
+            gameDeck.Remove(card);
+            return card;
         }
 
-        
-        //public static Card AddtoHandList()
-        
+
+
+        public void addtoXHand(Gambler player)
+        {
+            var card = dealCard();
+            player.hand.Add(card);
+            player.handNameList.Add(card.getName());
+
+        }
+
+
+        /*
+        public static void addToHandList()
+        {
+            
+        }
+        */
     }
 }

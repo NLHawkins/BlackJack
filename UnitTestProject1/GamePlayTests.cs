@@ -9,13 +9,15 @@ namespace UnitTestProject1
     [TestClass]
     public class GamePlayTests
     {
+        GamePlay GamePlay = new GamePlay();
         [TestMethod]
         public void GamePlayWillDealUniqueCard()
         {
             List<Card> testCardMatchList = new List<Card>();
-            for (int i = 0; i <= 52; i++)
+            
+            for (int i = 0; i < 52; i++)
             {
-                var card = GamePlay.DealCard();
+                var card = GamePlay.dealCard();
                 testCardMatchList.Add(card);                
             }
 
@@ -40,11 +42,12 @@ namespace UnitTestProject1
         [TestMethod]
         public void TestHand()
         {
-            var testPlayer = new Gambler(null, 0, 0);
-            testPlayer.AddCardToHand();
-            Assert.IsNotNull(testPlayer.getHandList());
+            var testPlayer = new Gambler(0, 0);
+            var card = new Card(Suits.Club, Faces.Ace);
+            testPlayer.handNameList.Add(card.getName());
+            //Assert.IsNotNull(testPlayer.getHandList());
             Assert.AreEqual(1, testPlayer.getNumbofCards());
-            Assert.AreNotEqual(0, testPlayer.getHoldingValue());
+            Assert.AreEqual(11, testPlayer.getHoldingValue());
         }
     }
 }

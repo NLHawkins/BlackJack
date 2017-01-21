@@ -7,7 +7,7 @@ using BlackJack;
 
 namespace BlackJack
 {
-    public class CardFactory
+    public class CardFactory 
     {
         
         public static List<Card> CreateDeck()
@@ -33,7 +33,7 @@ namespace BlackJack
             {
                 for (int numbOfFaces = 0; numbOfFaces < 13; numbOfFaces++)
                 {
-                    CardDeck.Add(new Card(suitList[numbOfSuits], faceList[numbOfFaces],(int)faceList[numbOfFaces]));
+                    CardDeck.Add(new Card() { suit = suitList[numbOfSuits], face = faceList[numbOfFaces] });
                 }
             }
 
@@ -63,7 +63,7 @@ namespace BlackJack
             {
                 for (int numbOfFaces = 0; numbOfFaces < 13; numbOfFaces++)
                 {
-                    CardDeck.Add(new Card(suitList[numbOfSuits], faceList[numbOfFaces], (int)faceList[numbOfFaces]));
+                    CardDeck.Add(new Card(suitList[numbOfSuits], faceList[numbOfFaces]));
                 }
             }
 
