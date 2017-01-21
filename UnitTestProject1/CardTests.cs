@@ -12,10 +12,10 @@ namespace CardTests
         {
 
             //took out value!!!!!!!********************
-            var sut = new Card(Suits.Club,Faces.Ace);
+            var sut = new Card(Suits.Club,Faces.Ace, (int)Faces.Ace);
             Assert.AreEqual(Suits.Club, sut.getSuit());
             Assert.AreEqual(Faces.Ace, sut.getFace());
-            //Assert.AreEqual(10, sut.getValue());
+            Assert.AreEqual(11, sut.getValue());
 
         }
 

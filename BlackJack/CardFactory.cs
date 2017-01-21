@@ -33,7 +33,7 @@ namespace BlackJack
             {
                 for (int numbOfFaces = 0; numbOfFaces < 13; numbOfFaces++)
                 {
-                    CardDeck.Add(new Card(suitList[numbOfSuits], faceList[numbOfFaces],(int)suitList[numbOfSuits]));
+                    CardDeck.Add(new Card(suitList[numbOfSuits], faceList[numbOfFaces],(int)faceList[numbOfFaces]));
                 }
             }
 
@@ -63,7 +63,7 @@ namespace BlackJack
             {
                 for (int numbOfFaces = 0; numbOfFaces < 13; numbOfFaces++)
                 {
-                    CardDeck.Add(new Card(suitList[numbOfSuits], faceList[numbOfFaces], (int)suitList[numbOfSuits]));
+                    CardDeck.Add(new Card(suitList[numbOfSuits], faceList[numbOfFaces], (int)faceList[numbOfFaces]));
                 }
             }
 

@@ -50,6 +50,7 @@ namespace UnitTestProject1
             testPlayer.AddCardToHand();
             Assert.IsNotNull(testPlayer.getHandList());
             Assert.AreEqual(1, testPlayer.getNumbofCards());
+            Assert.AreNotEqual(0, testPlayer.getHoldingValue());
         }
     }
 }
