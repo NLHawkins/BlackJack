@@ -27,13 +27,7 @@ namespace UnitTestProject1
         [TestMethod]
         public void GamePlayWillDeal13ofeachSuit()
         {
-            List<Card> testCardMatchList = new List<Card>();
-            for (int i = 0; i <= 52; i++)
-            {
-                var card = GamePlay.DealCard();
-                testCardMatchList.Add(card);
-            }
-
+            List<Card> testCardMatchList = CardFactory.CreateDeck();
             var suitTestList = new List<Suits>();
             foreach (var card in testCardMatchList)
             {

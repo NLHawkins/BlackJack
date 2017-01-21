@@ -16,6 +16,8 @@ namespace BlackJack
             while(stand == false)
             {
                 player.AddCardToHand();
+                player.AddCardToHand();
+                Console.WriteLine(player.getHandList());
 
 
 
