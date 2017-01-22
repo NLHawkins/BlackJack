@@ -7,14 +7,14 @@ using BlackJack;
 
 namespace BlackJack
 {
-    public class Gambler
+    public class Hand
     {
         public int holdingValue;
         public int numbOfCards;
         public List<string> handNameList = new List<string>();
         public List<Card> hand = new List<Card>();
         
-        public Gambler()
+        public Hand()
         {
         }
         //  removed from below for testing .  List<Card> _handList,

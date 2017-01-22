@@ -12,33 +12,62 @@ namespace BlackJack
     {
 
 
-        
 
-        public static Card dealCard()
+        public static Hand player;
+        public static Hand dealer;
+        public static List<Card> gameDeck;
+
+
+        public GamePlay()
         {
-            Card card = new Card();
-            List<Card> gameDeck = CardFactory.CreateDeck();
-            Gambler player = new Gambler();
-            Random rng = new Random();
 
-            while (!gameDeck.Contains(card))
-            {
-                card = gameDeck[rng.Next(52)];
-            }
+        }
+
+        public static List<Card> getDeck()
+        {
+            gameDeck = CardFactory.CreateDeck();
+            return gameDeck;
+        }
+
+        public static Card dealCardtoPlayerHand()
+        {
+            Random rng = new Random();   
+            Card card = gameDeck[rng.Next(52)];
+            player.hand.Add(card);
+            player.handNameList.Add(card.getName());           
             gameDeck.Remove(card);
             return card;
         }
 
-
-
-        public void addtoXHand(Gambler player)
+        public static void dealCardtoDealerHand()
         {
-            var card = dealCard();
-            player.hand.Add(card);
-            player.handNameList.Add(card.getName());
-
+            Random rng = new Random();
+            Card card = gameDeck[rng.Next(52)];
+            dealer.hand.Add(card);
+            dealer.handNameList.Add(card.getName());
+            gameDeck.Remove(card);
+           
         }
 
+
+
+        public static void showPlayerHand()
+        {
+            foreach (var name in player.handNameList)
+            {
+                Console.WriteLine(name);
+            }
+        }
+
+        public static void showDealerHand()
+        {
+            for (int i = 1; i < dealer.handNameList.Count(); i++)
+            {
+                Console.WriteLine(dealer.handNameList[i]);
+            }
+        }
+
+        public static
 
         
     }

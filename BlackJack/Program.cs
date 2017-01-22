@@ -8,8 +8,7 @@ namespace BlackJack
 {
     class Program
     {
-        Gambler player = new Gambler();
-        Gambler dealer = new Gambler();
+        
         List<Card> gameDeck = CardFactory.CreateDeck();
         Card card = new Card();
         Random rng = new Random();
@@ -24,7 +23,7 @@ namespace BlackJack
             return card;
         }
 
-        public void addtoHand(Gambler player)
+        public void addtoHand(Hand player)
         {
             var card = dealCard();
             player.hand.Add(card);
@@ -34,32 +33,34 @@ namespace BlackJack
 
         static void Main(string[] args)
         {
+            Hand player = new Hand();
+            Hand dealer = new Hand();
             //var cardAtPlay = new Card();
-           //cardAtPlay = GamePlay.dealCard();
+            //cardAtPlay = GamePlay.dealCard();
             //player.hand.Add()
 
-      
-                    
-            
-
-            
-            
-            
-
-
-            
-
-            
-           /* while(stand == false)
-            {
-                //player.AddCardToHand();
-                //player.AddCardToHand();
-               // Console.WriteLine(player.getHandList());
 
 
 
-            }
-            */
+
+
+
+
+
+
+
+
+
+            /* while(stand == false)
+             {
+                 //player.AddCardToHand();
+                 //player.AddCardToHand();
+                // Console.WriteLine(player.getHandList());
+
+
+
+             }
+             */
 
         }
     }

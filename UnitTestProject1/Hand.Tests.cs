@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using BlackJack;
 
-namespace GamblerTests
+namespace HandTests
 {
     [TestClass]
-    public class GamblerTests
+    public class HandTests
     {
         Card testCard = new Card(Suits.Club, Faces.Ace);
 
-        public void addtoHand(Gambler player)
+        public void addtoHand(Hand player)
         {
 
             player.hand.Add(testCard);
@@ -22,10 +22,10 @@ namespace GamblerTests
         }
 
         [TestMethod]
-        public void GamblerAttainsAttributes()
+        public void HandAttainsAttributes()
         {
 
-            Gambler sut = new Gambler();
+            Hand sut = new Hand();
             Card testCard = new Card(Suits.Club, Faces.Ace);
             Card testCard2 = new Card(Suits.Diamond, Faces.Five);
             sut.hand.Add(testCard);
