@@ -36,11 +36,14 @@ namespace BlackJack
             int value = 0;
             foreach (var card in hand)
             {
-                
                 holdingValue = value + card.getValue();
+                if (holdingValue > 21 && card.getFace() == Faces.Ace)
+                {
+                    holdingValue = holdingValue - 10;
+                }
+
                 value = holdingValue;
-            }
-            
+            }            
             return holdingValue;
         }
 

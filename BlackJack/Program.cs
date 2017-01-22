@@ -8,36 +8,66 @@ namespace BlackJack
 {
     class Program
     {
-        
-        List<Card> gameDeck = CardFactory.CreateDeck();
-        Card card = new Card();
-        Random rng = new Random();
 
-        public Card dealCard()
+
+        public static Hand player;
+        public static Hand dealer;
+        public static List<Card> gameDeck;
+        public static bool stand = false;
+        public static bool keepPlaying = true;
+        public static string keepPlayingYN;
+        public static string choice;
+        public static int purse = 100;
+        public static int handsWon = 0;
+        public static string handResult;
+        public static Card card;
+
+
+        public static void Main(string[] args)
         {
-            while (gameDeck.Contains(card))
+            Console.WriteLine("Let's Play BlackJack");
+            while (purse > 0 && keepPlaying == true)
             {
-                card = gameDeck[rng.Next(52)];
+                GamePlay.getDeck();
+                GamePlay.dealCardtoPlayerHand();
+                GamePlay.dealCardtoPlayerHand();
+                GamePlay.showPlayerHand();
+
+                GamePlay.dealCardtoDealerHand();
+                GamePlay.dealCardtoDealerHand();
+                GamePlay.showDealerHand();
+
+                while (player.getHoldingValue() <= 21 && stand == false)
+                {
+                    GamePlay.showPlayerHand();
+                    Console.WriteLine($"Your Hand has a value of {player.getHoldingValue()}");
+                    Console.WriteLine("Please choose [hit] or [stand]");
+                    choice = Console.ReadLine();
+                    GamePlay.makeChoice();
+                }
+
+                GamePlay.getHandResult();
+                GamePlay.purseChange();
+                Console.WriteLine("Would you like to continue playing? y/n");
+                keepPlayingYN = Console.ReadLine();
+                GamePlay.keepGoing();
             }
-            gameDeck.Remove(card);
-            return card;
-        }
+            if (purse < 1)
+            {
+                Console.WriteLine("You are out of money, sell your shoes and play again");
+            }
 
-        public void addtoHand(Hand player)
-        {
-            var card = dealCard();
-            player.hand.Add(card);
-            player.handNameList.Add(card.getName());
+            else
+            {
+                Console.WriteLine($"Thanks for playing! You're taking home {player.getHoldingValue()}");
+            }
 
-        }
+           
+            
 
-        static void Main(string[] args)
-        {
-            Hand player = new Hand();
-            Hand dealer = new Hand();
-            //var cardAtPlay = new Card();
-            //cardAtPlay = GamePlay.dealCard();
-            //player.hand.Add()
+
+
+
 
 
 
