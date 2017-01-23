@@ -19,6 +19,12 @@ namespace BlackJack
         }
         //  removed from below for testing .  List<Card> _handList,
 
+        public Hand(int _numbOfCards,int _holdingValue)
+        {
+            numbOfCards = _numbOfCards;
+            holdingValue = _holdingValue;
+        }
+
         public List<string> getHandList()
         {
             

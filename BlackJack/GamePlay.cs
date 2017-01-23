@@ -13,8 +13,8 @@ namespace BlackJack
 
 
 
-        public static Hand player;
-        public static Hand dealer;
+        private static Hand player = new Hand(0,0);
+        public static Hand dealer = new Hand(0,0);
         public static List<Card> gameDeck;
         public static bool stand = false;
         public static string choice;
@@ -124,19 +124,23 @@ namespace BlackJack
         public static void showPlayerHand()
         {
             Console.WriteLine("Your Hand:");
+            Console.WriteLine();
             foreach (var name in player.handNameList)
             {
-                Console.Write(name, ", ");
+                Console.WriteLine(name);
             }
+            Console.WriteLine();
         }
 
         public static void showDealerHand()
         {
-            Console.WriteLine("Dealer's Hand");
+            Console.WriteLine("Dealer's Hand:");
+            Console.WriteLine("X");
             for (int i = 1; i < dealer.handNameList.Count(); i++)
             {
-                Console.Write(dealer.handNameList[i], ", ");
+                Console.Write(dealer.handNameList[i]);
             }
+            Console.WriteLine();
         }
 
         public static void makeChoice()

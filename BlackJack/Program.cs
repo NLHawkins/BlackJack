@@ -10,8 +10,8 @@ namespace BlackJack
     {
 
 
-        public static Hand player;
-        public static Hand dealer;
+        public static Hand player = new Hand(0, 0);
+        public static Hand dealer = new Hand(0, 0);
         public static List<Card> gameDeck;
         public static bool stand = false;
         public static bool keepPlaying = true;
