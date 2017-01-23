@@ -6,22 +6,24 @@ using System.Threading.Tasks;
 
 namespace BlackJack
 {
-    class Program
+    public class Program
     {
 
 
-        public static Hand player = new Hand(0, 0);
-        public static Hand dealer = new Hand(0, 0);
+        public static Hand player;
+        public static Hand dealer;
         public static List<Card> gameDeck;
         public static bool stand = false;
         public static bool keepPlaying = true;
         public static string keepPlayingYN;
-        public static string choice;
+        
         public static int purse = 100;
         public static int handsWon = 0;
         public static string handResult;
         public static Card card;
+        public static int holdingValue;
 
+        
 
         public static void Main(string[] args)
         {
@@ -36,20 +38,23 @@ namespace BlackJack
                 GamePlay.dealCardtoDealerHand();
                 GamePlay.dealCardtoDealerHand();
                 GamePlay.showDealerHand();
+                GamePlay.player.getHoldingValue();
 
-                while (player.getHoldingValue() <= 21 && stand == false)
+                while (GamePlay.playerValue <= 21 &&  GamePlay.stand == false)
                 {
-                    GamePlay.showPlayerHand();
-                    Console.WriteLine($"Your Hand has a value of {player.getHoldingValue()}");
+                    
+                    Console.WriteLine($"Your Hand has a value of {GamePlay.playerValue}");
                     Console.WriteLine("Please choose [hit] or [stand]");
-                    choice = Console.ReadLine();
+                    GamePlay.choice = Console.ReadLine();
                     GamePlay.makeChoice();
+                    GamePlay.showPlayerHand();
+                    GamePlay.player.getHoldingValue();
                 }
-
+                GamePlay.dealerPlaysHand();
                 GamePlay.getHandResult();
                 GamePlay.purseChange();
                 Console.WriteLine("Would you like to continue playing? y/n");
-                keepPlayingYN = Console.ReadLine();
+                GamePlay.keepPlayingYN = Console.ReadLine();
                 GamePlay.keepGoing();
             }
             if (purse < 1)
@@ -59,7 +64,7 @@ namespace BlackJack
 
             else
             {
-                Console.WriteLine($"Thanks for playing! You're taking home {player.getHoldingValue()}");
+                Console.WriteLine($"Thanks for playing! You're taking home {GamePlay.playerValue}");
             }
 
            

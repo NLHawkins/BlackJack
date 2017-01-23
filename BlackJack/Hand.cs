@@ -19,13 +19,14 @@ namespace BlackJack
         }
         //  removed from below for testing .  List<Card> _handList,
 
+
         public Hand(int _numbOfCards,int _holdingValue)
         {
             numbOfCards = _numbOfCards;
             holdingValue = _holdingValue;
         }
 
-        public List<string> getHandList()
+        public List<string> getHandNameList()
         {
             
             return handNameList;
@@ -36,12 +37,14 @@ namespace BlackJack
             numbOfCards = handNameList.Count();
             return numbOfCards;
         }
-
+        
         public int getHoldingValue()
         {
             int value = 0;
             foreach (var card in hand)
+
             {
+                
                 holdingValue = value + card.getValue();
                 if (holdingValue > 21 && card.getFace() == Faces.Ace)
                 {
@@ -49,10 +52,12 @@ namespace BlackJack
                 }
 
                 value = holdingValue;
-            }            
+            }
             return holdingValue;
-        }
+            
 
+
+        }
   
     }
 

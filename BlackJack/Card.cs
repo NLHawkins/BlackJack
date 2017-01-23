@@ -24,7 +24,7 @@ namespace BlackJack
     {
         public Suits suit;
         public Faces face;
-        public int value;
+        public static int value;
         public string name;
 
 

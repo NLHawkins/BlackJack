@@ -13,7 +13,7 @@ namespace BlackJack
 
 
 
-        private static Hand player = new Hand(0,0);
+        public static Hand player = new Hand(0,0);
         public static Hand dealer = new Hand(0,0);
         public static List<Card> gameDeck;
         public static bool stand = false;
@@ -31,6 +31,7 @@ namespace BlackJack
 
         }
 
+        public static int playerValue = player.getHoldingValue();
         public static void keepGoing()
         {
             if(keepPlayingYN == "n")
@@ -102,13 +103,14 @@ namespace BlackJack
             
         }
 
-        public static void dealCardtoDealerHand()
+        public static Card dealCardtoDealerHand()
         {
             Random rng = new Random();
             Card card = gameDeck[rng.Next(gameDeck.Count())];
             dealer.hand.Add(card);
             dealer.handNameList.Add(card.getName());
             gameDeck.Remove(card);
+            return card;
            
         }
 
@@ -118,6 +120,7 @@ namespace BlackJack
             {
                 Console.WriteLine("Dealer Hit's");
                 dealCardtoDealerHand();
+                
             }
         }
 
