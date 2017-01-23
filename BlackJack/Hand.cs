@@ -13,14 +13,14 @@ namespace BlackJack
         public int numbOfCards;
         public List<string> handNameList = new List<string>();
         public List<Card> hand = new List<Card>();
-        
+
         public Hand()
         {
         }
         //  removed from below for testing .  List<Card> _handList,
 
 
-        public Hand(int _numbOfCards,int _holdingValue)
+        public Hand(int _numbOfCards, int _holdingValue)
         {
             numbOfCards = _numbOfCards;
             holdingValue = _holdingValue;
@@ -28,37 +28,51 @@ namespace BlackJack
 
         public List<string> getHandNameList()
         {
-            
+
             return handNameList;
         }
 
         public int getNumbofCards()
         {
-            numbOfCards = handNameList.Count();
+            numbOfCards = hand.Count();
             return numbOfCards;
         }
-        
-        public int getHoldingValue()
+
+        public int getPlayerHoldingValue()
         {
-            int value = 0;
+            holdingValue = 0;
             foreach (var card in hand)
 
             {
-                
-                holdingValue = value + card.getValue();
+
+                holdingValue += card.getValue();
                 if (holdingValue > 21 && card.getFace() == Faces.Ace)
                 {
                     holdingValue = holdingValue - 10;
                 }
 
-                value = holdingValue;
+
             }
             return holdingValue;
-            
+        }
+        public int getHoldingValue()
+        {
+            holdingValue = 0;
+            foreach (var card in hand)
 
+            {
+
+                holdingValue += card.getValue();
+                if (holdingValue > 21 && card.getFace() == Faces.Ace)
+                {
+                    holdingValue = holdingValue - 10;
+                }
+
+
+            }
+            return holdingValue;
 
         }
-  
-    }
 
+    }
 }

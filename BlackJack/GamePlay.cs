@@ -21,26 +21,40 @@ namespace BlackJack
         public static int purse = 100;
         public static int handsWon = 0;
         public static string handResult;
-        public static bool keepPlaying;
+        public static bool keepPlaying = true;
         public static string keepPlayingYN;
         public static Card card;
+        public static bool notBusted = true;
 
-            
+
         public GamePlay()
         {
 
         }
 
         public static int playerValue = player.getHoldingValue();
+        public static int dealerValue = dealer.getHoldingValue();
         public static void keepGoing()
         {
             if(keepPlayingYN == "n")
             {
                 keepPlaying = false;
+                Console.Clear();
             }
             else
             {
+                Console.Clear();
+                Console.WriteLine($"Purse: ${purse}");
+                Console.WriteLine("Next Hand");
+                Console.WriteLine("*****************************************");
+                gameDeck = CardFactory.CreateDeck();
+                stand = false;
+                player.holdingValue = 0;
+                dealer.holdingValue = 0;
+                player = new Hand(0, 0);
+                dealer = new Hand(0, 0);
                 keepPlaying = true;
+                
             }
         }
 
@@ -64,6 +78,8 @@ namespace BlackJack
             }
             else if (player.getHoldingValue() == dealer.getHoldingValue())
             {
+                Console.WriteLine("Its a Push");
+                Console.WriteLine();
                 handResult = "Push";
             }
         }
@@ -114,15 +130,44 @@ namespace BlackJack
            
         }
 
-        public static void dealerPlaysHand()
+        public static void bustCheck()
         {
-            while(dealer.holdingValue <= 16)
+            if(player.getHoldingValue() > 21)
             {
-                Console.WriteLine("Dealer Hit's");
-                dealCardtoDealerHand();
+                Console.WriteLine("You BUSTED");
+                notBusted = false;
+                keepPlaying = false;
                 
             }
         }
+
+        public static void dealerPlaysHand()
+        {
+            reavealDealerHand();
+            
+            while (dealer.getHoldingValue() <= 16)
+            {
+                Console.WriteLine("Dealer Hit's");
+                Console.WriteLine();
+                dealCardtoDealerHand();
+                reavealDealerHand();
+                Console.WriteLine();
+
+            }
+            if (dealer.getHoldingValue() > 16 && dealer.getHoldingValue() < 22)
+            {
+
+                Console.WriteLine($"Dealer stands at {dealer.getHoldingValue()}");
+                Console.WriteLine();
+            }
+            else
+            {
+                Console.WriteLine("Dealer Busts");
+                Console.WriteLine();
+            }
+            
+        }
+           
 
         public static void showPlayerHand()
         {
@@ -138,8 +183,19 @@ namespace BlackJack
         public static void showDealerHand()
         {
             Console.WriteLine("Dealer's Hand:");
+            Console.WriteLine();
             Console.WriteLine("X");
             for (int i = 1; i < dealer.handNameList.Count(); i++)
+            {
+                Console.Write(dealer.handNameList[i]);
+            }
+            Console.WriteLine();
+        }
+
+        public static void reavealDealerHand()
+        {
+            Console.WriteLine("Dealer's Hand:");           
+            for (int i = 0; i < dealer.handNameList.Count(); i++)
             {
                 Console.Write(dealer.handNameList[i]);
             }

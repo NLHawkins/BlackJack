@@ -13,11 +13,12 @@ namespace UnitTestProject1
         [TestMethod]
         public void GamePlayWillDealUniqueCard()
         {
+            List<Card> deck = CardFactory.CreateDeck();
             List<Card> testCardMatchList = new List<Card>();
             
             for (int i = 0; i < 52; i++)
             {
-                var card = GamePlay.dealCard();
+                var card = deck[i];
                 testCardMatchList.Add(card);                
             }
 
@@ -42,7 +43,7 @@ namespace UnitTestProject1
         [TestMethod]
         public void TestHand()
         {
-            var testPlayer = new Gambler();
+            var testPlayer = new Hand();
             var card = new Card(Suits.Club, Faces.Ace);
             testPlayer.handNameList.Add(card.getName());
             //Assert.IsNotNull(testPlayer.getHandList());
