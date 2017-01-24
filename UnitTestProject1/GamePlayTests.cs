@@ -46,7 +46,7 @@ namespace UnitTestProject1
             var testPlayer = new Hand();
             var card = new Card(Suits.Club, Faces.Ace);
             testPlayer.handNameList.Add(card.getName());
-            //Assert.IsNotNull(testPlayer.getHandList());
+            testPlayer.hand.Add(card);            
             Assert.AreEqual(1, testPlayer.getNumbofCards());
             Assert.AreEqual(11, testPlayer.getHoldingValue());
         }

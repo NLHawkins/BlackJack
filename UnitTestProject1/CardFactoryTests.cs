@@ -18,7 +18,6 @@ namespace CardFactoryTests
         [TestMethod]
         public void DeckContains13SuitedMacthes()
         {
-
             var sut = CardFactory.getSuitTestList();
             Assert.AreEqual(13, sut.Count);
 

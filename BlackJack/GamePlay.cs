@@ -24,7 +24,7 @@ namespace BlackJack
         public static bool keepPlaying = true;
         public static string keepPlayingYN;
         public static Card card;
-        public static bool notBusted = true;
+        public static bool busted = true;
 
 
         public GamePlay()
@@ -54,6 +54,7 @@ namespace BlackJack
                 player = new Hand(0, 0);
                 dealer = new Hand(0, 0);
                 keepPlaying = true;
+                busted = false;
                 
             }
         }
@@ -135,8 +136,8 @@ namespace BlackJack
             if(player.getHoldingValue() > 21)
             {
                 Console.WriteLine("You BUSTED");
-                notBusted = false;
-                keepPlaying = false;
+                busted = true;
+                //keepPlaying = false;
                 
             }
         }

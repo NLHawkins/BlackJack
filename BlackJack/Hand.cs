@@ -28,7 +28,6 @@ namespace BlackJack
 
         public List<string> getHandNameList()
         {
-
             return handNameList;
         }
 
@@ -38,41 +37,18 @@ namespace BlackJack
             return numbOfCards;
         }
 
-        public int getPlayerHoldingValue()
-        {
-            holdingValue = 0;
-            foreach (var card in hand)
-
-            {
-
-                holdingValue += card.getValue();
-                if (holdingValue > 21 && card.getFace() == Faces.Ace)
-                {
-                    holdingValue = holdingValue - 10;
-                }
-
-
-            }
-            return holdingValue;
-        }
         public int getHoldingValue()
         {
             holdingValue = 0;
             foreach (var card in hand)
-
             {
-
                 holdingValue += card.getValue();
                 if (holdingValue > 21 && card.getFace() == Faces.Ace)
                 {
                     holdingValue = holdingValue - 10;
                 }
-
-
             }
             return holdingValue;
-
         }
-
     }
 }

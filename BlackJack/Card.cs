@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 namespace BlackJack
 {
 
-
     public enum Suits
     {
         Club, Spade, Diamond, Heart
@@ -27,19 +26,14 @@ namespace BlackJack
         public static int value;
         public string name;
 
-
-
         public Card()
         {
 
         }
-        //took out value!!!!!!**************************
         public Card(Suits _suit, Faces _face)
         {
             suit = _suit;
             face = _face;
-            //value = _value;
-
         }
 
         public Suits getSuit()
@@ -63,9 +57,7 @@ namespace BlackJack
                         Faces.Jack, Faces.Queen, Faces.King, Faces.Ace
                     };
 
-
             List<int> valueList = new List<int>() { 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11 };
-
             int valueIndex = faceList.FindIndex(x => x.Equals(face));
             value = valueList[valueIndex];
             return value;
